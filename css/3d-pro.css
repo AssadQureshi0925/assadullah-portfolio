@@ -1,0 +1,134 @@
+/* Assadullah Portfolio — 3D Professional Theme (overrides) */
+
+/* Deep 3D space background */
+body {
+  background:
+    radial-gradient(900px 500px at 15% -5%, rgba(99, 102, 241, 0.28), transparent 60%),
+    radial-gradient(800px 500px at 90% 10%, rgba(139, 92, 246, 0.22), transparent 60%),
+    radial-gradient(700px 600px at 50% 110%, rgba(6, 182, 212, 0.14), transparent 60%),
+    #05070f !important;
+}
+
+/* 3D logo */
+.logo-img {
+  width: 44px; height: 44px; object-fit: cover; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  transform: perspective(400px) rotateY(-12deg);
+  transition: transform 0.4s ease;
+}
+.logo:hover .logo-img { transform: perspective(400px) rotateY(0deg) scale(1.08); }
+.logo { display: flex; align-items: center; gap: 0.6rem; }
+
+/* Floating hero logo */
+.hero-logo-wrap { display: flex; justify-content: center; margin-bottom: 1.25rem; perspective: 800px; }
+.hero-logo {
+  width: 150px; height: 150px; object-fit: cover; border-radius: 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 60px rgba(139, 92, 246, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  animation: heroFloat 5s ease-in-out infinite;
+  transform: rotateX(6deg) rotateY(-8deg);
+}
+@keyframes heroFloat {
+  0%, 100% { transform: rotateX(6deg) rotateY(-8deg) translateY(0); }
+  50% { transform: rotateX(2deg) rotateY(6deg) translateY(-12px); }
+}
+
+/* Navbar — floating glass */
+.navbar {
+  background: rgba(7, 9, 14, 0.72) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Hero title — 3D gradient */
+.hero-title {
+  background: linear-gradient(120deg, #ffffff 20%, #a5b4fc 45%, #c4b5fd 65%, #67e8f9 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 6px 24px rgba(99, 102, 241, 0.35));
+}
+.gradient-text {
+  background: linear-gradient(90deg, #818cf8, #c084fc, #22d3ee);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* 3D buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6 55%, #06b6d4) !important;
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transform: translateY(0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(139, 92, 246, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
+.btn-outline, .btn-whatsapp {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease;
+}
+.btn-outline:hover, .btn-whatsapp:hover { transform: translateY(-3px); }
+
+/* Section titles */
+.section-title {
+  background: linear-gradient(120deg, #ffffff, #a5b4fc);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.section-divider {
+  background: linear-gradient(90deg, transparent, #818cf8, #c084fc, #22d3ee, transparent) !important;
+  height: 3px !important;
+}
+
+/* 3D glass cards — tilt on hover */
+.glass-card, .skill-category-card, .project-card, .timeline-content, .contact-info, .contact-form-container, .stat-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transform: perspective(1000px) rotateX(0deg);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.project-card:hover, .skill-category-card:hover, .timeline-content:hover {
+  transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.55) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(139, 92, 246, 0.25);
+}
+
+/* Project preview — 3D depth */
+.project-preview {
+  background: linear-gradient(145deg, #1e1b4b, #0f172a 60%, #164e63) !important;
+  box-shadow: inset 0 -20px 40px rgba(0, 0, 0, 0.35);
+}
+.project-preview-icon { filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)); }
+
+/* Avatar card — logo instead of icon */
+.avatar-logo {
+  width: 150px; height: 150px; object-fit: cover; border-radius: 28px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 45px rgba(139, 92, 246, 0.4);
+  animation: heroFloat 6s ease-in-out infinite;
+}
+.avatar-icon-box { background: transparent !important; box-shadow: none !important; }
+
+/* Skill pills — glossy 3D */
+.skill-pill, .tech-tag {
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.12)) !important;
+  border: 1px solid rgba(165, 180, 252, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Metric / stat numbers glow */
+.metric-num, .stat-number {
+  background: linear-gradient(90deg, #a5b4fc, #c4b5fd);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Filter buttons */
+.filter-btn.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.5);
+}
+
+/* Contact items */
+.contact-item:hover { transform: translateY(-3px); box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45); }
+
+/* Footer */
+.footer { border-top: 1px solid rgba(255, 255, 255, 0.08); background: rgba(5, 7, 15, 0.8); }
+
+/* Demo modal — deeper 3D frame */
+.demo-container { box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 60px rgba(139, 92, 246, 0.3); }
