@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://assadqureshi0925.github.io/assadullah-portfolio/sitemap.xml
