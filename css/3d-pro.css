@@ -1,141 +1,23 @@
-/* Assadullah Portfolio — Luxury Black & Gold Theme (overrides) */
+/* Assadullah Portfolio — Gold 3D logo treatment (complements styles.css).
+   Keeps the gold 3D "A" logo he picked; no gradient text, no glow blobs. */
 
-/* Black & gold background */
-body {
-  background:
-    radial-gradient(900px 500px at 15% -5%, rgba(212, 175, 55, 0.16), transparent 60%),
-    radial-gradient(800px 500px at 90% 10%, rgba(184, 134, 11, 0.14), transparent 60%),
-    radial-gradient(700px 600px at 50% 110%, rgba(212, 175, 55, 0.08), transparent 60%),
-    #050403 !important;
-}
-
-/* 3D gold logo */
+/* 3D gold logo in the navbar */
 .logo-img {
-  width: 44px; height: 44px; object-fit: cover; border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.45);
-  transform: perspective(400px) rotateY(-12deg);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35), 0 0 0 1px rgba(212, 175, 55, 0.4);
+  transform: perspective(400px) rotateY(-10deg);
   transition: transform 0.4s ease;
 }
-.logo:hover .logo-img { transform: perspective(400px) rotateY(0deg) scale(1.08); }
-.logo { display: flex; align-items: center; gap: 0.6rem; }
-.logo-name {
-  background: linear-gradient(120deg, #f5d76e, #d4af37 55%, #b8860b);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+.logo:hover .logo-img { transform: perspective(400px) rotateY(0deg) scale(1.06); }
+
+/* Gentle float on the about avatar logo */
+.avatar-logo { animation: logoFloat 6s ease-in-out infinite; }
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avatar-logo { animation: none; }
 }
 
-/* Floating hero logo */
-.hero-logo-wrap { display: flex; justify-content: center; margin-bottom: 1.25rem; perspective: 800px; }
-.hero-logo {
-  width: 150px; height: 150px; object-fit: cover; border-radius: 32px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 60px rgba(212, 175, 55, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.4);
-  animation: heroFloat 5s ease-in-out infinite;
-  transform: rotateX(6deg) rotateY(-8deg);
-}
-@keyframes heroFloat {
-  0%, 100% { transform: rotateX(6deg) rotateY(-8deg) translateY(0); }
-  50% { transform: rotateX(2deg) rotateY(6deg) translateY(-12px); }
-}
-
-/* Navbar — black glass with gold edge */
-.navbar {
-  background: rgba(5, 4, 3, 0.78) !important;
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* Hero title — gold gradient */
-.hero-title {
-  background: linear-gradient(120deg, #ffffff 15%, #f5d76e 45%, #d4af37 70%, #fff2b0 95%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 6px 24px rgba(212, 175, 55, 0.3));
-}
-.gradient-text {
-  background: linear-gradient(90deg, #f5d76e, #d4af37, #b8860b);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-
-/* Gold buttons */
-.btn-primary {
-  background: linear-gradient(135deg, #f5d76e, #d4af37 50%, #a67c00) !important;
-  color: #1a1405 !important;
-  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  transform: translateY(0);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(212, 175, 55, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.5); }
-.btn-outline, .btn-whatsapp {
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
-  transition: transform 0.25s ease;
-}
-.btn-outline:hover, .btn-whatsapp:hover { transform: translateY(-3px); }
-.btn-outline { border-color: rgba(212, 175, 55, 0.6) !important; color: #f5d76e !important; }
-
-/* Section titles */
-.section-title {
-  background: linear-gradient(120deg, #ffffff, #f5d76e);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.section-subtitle { color: #d4af37 !important; letter-spacing: 0.2em; }
-.section-divider {
-  background: linear-gradient(90deg, transparent, #d4af37, #f5d76e, #d4af37, transparent) !important;
-  height: 3px !important;
-}
-
-/* Gold glass cards — tilt on hover */
-.glass-card, .skill-category-card, .project-card, .timeline-content, .contact-info, .contact-form-container, .stat-card {
-  background: linear-gradient(160deg, rgba(212, 175, 55, 0.08), rgba(255, 255, 255, 0.02)) !important;
-  border: 1px solid rgba(212, 175, 55, 0.28) !important;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(245, 215, 110, 0.15);
-  transform: perspective(1000px) rotateX(0deg);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-}
-.project-card:hover, .skill-category-card:hover, .timeline-content:hover {
-  transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-8px);
-  border-color: rgba(212, 175, 55, 0.7) !important;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(212, 175, 55, 0.22);
-}
-
-/* Project preview — black & gold depth */
-.project-preview {
-  background: linear-gradient(145deg, #2a2110, #0a0805 60%, #1a1405) !important;
-  box-shadow: inset 0 -20px 40px rgba(0, 0, 0, 0.4);
-}
-.project-preview-icon { filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)); }
-
-/* Avatar card — gold logo */
-.avatar-logo {
-  width: 150px; height: 150px; object-fit: cover; border-radius: 28px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 45px rgba(212, 175, 55, 0.35);
-  animation: heroFloat 6s ease-in-out infinite;
-}
-.avatar-icon-box { background: transparent !important; box-shadow: none !important; }
-
-/* Skill pills — gold gloss */
-.skill-pill, .tech-tag {
-  background: linear-gradient(145deg, rgba(212, 175, 55, 0.22), rgba(212, 175, 55, 0.08)) !important;
-  border: 1px solid rgba(212, 175, 55, 0.4) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(245, 215, 110, 0.2);
-}
-
-/* Metric / stat numbers in gold */
-.metric-num, .stat-number {
-  background: linear-gradient(90deg, #f5d76e, #d4af37);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-
-/* Filter buttons */
-.filter-btn.active {
-  background: linear-gradient(135deg, #f5d76e, #d4af37) !important;
-  color: #1a1405 !important;
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.45);
-}
-
-/* Contact items */
-.contact-item:hover { transform: translateY(-3px); box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5); }
-
-/* Footer */
-.footer { border-top: 1px solid rgba(212, 175, 55, 0.25); background: rgba(5, 4, 3, 0.85); }
-
-/* Demo modal — gold frame */
-.demo-container { box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 60px rgba(212, 175, 55, 0.25); }
+/* Gold frame on the demo modal */
+.demo-container { box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(212, 175, 55, 0.25); }
