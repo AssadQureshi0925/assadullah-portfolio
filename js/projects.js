@@ -117,36 +117,31 @@ function renderProjects(filter = "all") {
     ? projectsData 
     : projectsData.filter(p => p.category === filter);
 
-  grid.innerHTML = filteredProjects.map(project => `
-    <article class="project-card" data-category="${project.category}">
-      <div class="project-preview">
-        <i class="${project.icon} project-preview-icon" style="color: ${project.iconColor};"></i>
-        <div class="project-overlay">
-          <button class="project-overlay-btn open-modal-btn" data-id="${project.id}" title="View Details" aria-label="View Details">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </button>
-        </div>
-      </div>
-      <div class="project-body">
+  grid.innerHTML = filteredProjects.map(project => {
+    // Stable editorial number from the full list (01–08), not the filtered position
+    const num = String(projectsData.indexOf(project) + 1).padStart(2, "0");
+    return `
+    <article class="project-row" data-category="${project.category}" data-id="${project.id}" tabindex="0" role="button" aria-label="View details: ${project.title}">
+      <span class="project-num" aria-hidden="true">${num}</span>
+      <div class="project-row-main">
         <span class="project-category-tag">${project.categoryLabel}</span>
         <h3 class="project-title">${project.title}</h3>
         <p class="project-desc">${project.shortDescription}</p>
         <div class="project-tech">
           ${project.technologies.slice(0, 4).map(tech => `<span class="tech-tag">${tech}</span>`).join("")}
         </div>
-        <div class="project-footer">
-          <div class="project-links">
-            <button class="project-link demo-btn" data-url="${project.liveDemo}" data-title="${project.title}" aria-label="Live Demo">
-              <i class="fa-solid fa-play"></i> Live Demo
-            </button>
-          </div>
-          <button class="btn btn-ghost btn-sm open-modal-btn" data-id="${project.id}">
-            Details &rarr;
-          </button>
-        </div>
+      </div>
+      <div class="project-row-actions">
+        <button class="project-link demo-btn" data-url="${project.liveDemo}" data-title="${project.title}" aria-label="Live demo: ${project.title}">
+          <i class="fa-solid fa-play" aria-hidden="true"></i> Live Demo
+        </button>
+        <button class="btn btn-ghost btn-sm open-modal-btn" data-id="${project.id}">
+          Details &rarr;
+        </button>
       </div>
     </article>
-  `).join("");
+  `;
+  }).join("");
 
   attachModalTriggers();
 }
@@ -157,6 +152,22 @@ function attachModalTriggers() {
     btn.addEventListener("click", () => {
       const id = btn.getAttribute("data-id");
       openProjectModal(id);
+    });
+  });
+
+  // Whole row opens the detail modal — except the Live Demo button,
+  // which is handled by the delegated demo handler.
+  const rows = document.querySelectorAll(".project-row");
+  rows.forEach(row => {
+    row.addEventListener("click", (e) => {
+      if (e.target.closest(".demo-btn")) return;
+      openProjectModal(row.getAttribute("data-id"));
+    });
+    row.addEventListener("keydown", (e) => {
+      if ((e.key === "Enter" || e.key === " ") && !e.target.closest(".demo-btn")) {
+        e.preventDefault();
+        openProjectModal(row.getAttribute("data-id"));
+      }
     });
   });
 }
@@ -170,7 +181,7 @@ function openProjectModal(projectId) {
 
   modalBody.innerHTML = `
     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-      <i class="${project.icon}" style="font-size: 2.5rem; color: ${project.iconColor};"></i>
+      <i class="${project.icon}" style="font-size: 2.5rem; color: var(--gold);"></i>
       <div>
         <span class="project-category-tag">${project.categoryLabel}</span>
         <h2 style="font-size: 1.75rem; font-weight: 800;">${project.title}</h2>
