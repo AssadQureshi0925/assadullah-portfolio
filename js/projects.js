@@ -181,7 +181,7 @@ function openProjectModal(projectId) {
 
   modalBody.innerHTML = `
     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-      <i class="${project.icon}" style="font-size: 2.5rem; color: var(--gold);"></i>
+      <i class="${project.icon}" style="font-size: 2.5rem; color: var(--teal);"></i>
       <div>
         <span class="project-category-tag">${project.categoryLabel}</span>
         <h2 style="font-size: 1.75rem; font-weight: 800;">${project.title}</h2>
