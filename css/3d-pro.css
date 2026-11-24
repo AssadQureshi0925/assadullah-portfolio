@@ -1,15 +1,15 @@
-/* Assadullah Portfolio — Gold 3D logo treatment (complements styles.css).
-   Keeps the gold 3D "A" logo he picked; no gradient text, no glow blobs. */
+/* Assadullah Portfolio — Portrait treatment (complements styles.css).
+   Keeps the portrait photo in the navbar and About; no gradient text, no glow blobs. */
 
-/* 3D gold logo in the navbar */
+/* 3D portrait in the navbar */
 .logo-img {
-  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35), 0 0 0 1px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 18px rgba(20, 184, 166, 0.35), 0 0 0 1px rgba(20, 184, 166, 0.4);
   transform: perspective(400px) rotateY(-10deg);
   transition: transform 0.4s ease;
 }
 .logo:hover .logo-img { transform: perspective(400px) rotateY(0deg) scale(1.06); }
 
-/* Gentle float on the about avatar logo */
+/* Gentle float on the about avatar portrait */
 .avatar-logo { animation: logoFloat 6s ease-in-out infinite; }
 @keyframes logoFloat {
   0%, 100% { transform: translateY(0); }
@@ -19,5 +19,5 @@
   .avatar-logo { animation: none; }
 }
 
-/* Gold frame on the demo modal */
-.demo-container { box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(212, 175, 55, 0.25); }
+/* Teal frame on the demo modal */
+.demo-container { box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(20, 184, 166, 0.25); }
