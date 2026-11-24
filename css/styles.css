@@ -522,7 +522,6 @@ strong { font-weight: 600; color: var(--text-primary); }
 }
 .bento-tile:hover { border-color: var(--border-strong); transform: translateY(-3px); }
 .bento-wide { grid-column: span 6; }
-.bento-full { grid-column: span 12; }
 .bento-head { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.7rem; }
 .bento-icon {
   display: inline-flex;
